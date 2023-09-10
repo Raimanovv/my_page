@@ -26,3 +26,7 @@ def number_days(request, day: int):
     name_day = list_days[day - 1]
     redirect_url = reverse('days-name', args=(name_day,))
     return HttpResponseRedirect(redirect_url)
+
+
+def index(request):
+    return render(request, 'week_days/greeting.html')

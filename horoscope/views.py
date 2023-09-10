@@ -55,8 +55,7 @@ def index(request):
 
 
 def get_info_about_sign_zodiac(request, sign_zodiac: str):
-    response = render_to_string('horoscope/info_zodiac.html')
-    return HttpResponse(response)
+    return render(request, 'horoscope/info_zodiac.html')
 
 
 def get_info_about_sign_zodiac_by_number(request, sign_zodiac: int):
@@ -88,7 +87,6 @@ def list_four_elements(request, one_element: str):
         html_text += f"<li><a href='{url}'>{zodiac.title()}<a></li>"
     end_text = f'<ul>{html_text}</ul>'
     return HttpResponse(end_text)
-
 
 
 def get_info_by_date(request, mouth: int, day: int):
