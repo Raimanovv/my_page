@@ -5,21 +5,10 @@
     <title>Menu</title>
 </head>
 <body>
-    <ul>
-        {% for zodiac in zodiacs %}
-            {% if forloop.first %}
-                <li> <b>{{forloop.counter0}} {{zodiac|title}}</b></li>
-            {% elif forloop.last %}
-                <li style="color:red"> <b>{{forloop.counter0}} {{zodiac|title}}</b></li>
-            {% else %}
-                <li>{{zodiac|title}}</li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-    {% for key, value in zodiac_dict.items %}
-        <p>{{key}}: {{value}}</p>
-    {% empty %}
-        <p>Sorry, empty</p>
+<ul>
+    {% for zodiac in zodiacs %}
+        <li><a href="{% url 'horoscope-name' sign_zodiac=zodiac %}">{{zodiac|title}}</a></li>
     {% endfor %}
+</ul>
 </body>
 </html>
