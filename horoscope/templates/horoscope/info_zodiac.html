@@ -6,6 +6,7 @@
 
 
 {% block content %}
+    {% include 'includes/navbar.html' %}
     <h2>Content from info_zodiac.html</h2>
     {% if description is None %}
         <h2>Неравильный знак зодиака - {{sign|title}}</h2>

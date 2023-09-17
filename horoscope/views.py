@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 from datetime import datetime
-from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -59,11 +58,6 @@ def get_info_about_sign_zodiac(request, sign_zodiac: str):
     data = {
         'description': description,
         'sign': sign_zodiac.title(),
-        'my_int': 123,
-        'my_float': 5.75,
-        'my_list': [1, 2, 3],
-        'my_tuple': (1, 2, 3),
-        'my_dict': {'name': 'Jack', 'age': 40},
     }
     return render(request, 'horoscope/info_zodiac.html', context=data)
 
