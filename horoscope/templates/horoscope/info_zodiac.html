@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Гороскоп для {{sign}}</title>
-</head>
-<body>
-    {% if my_list|length >= 3 %}
-        <p>Список из 3х или более элементов - {{ my_list }}</p>
-    {% elif my_list|length == 2 %}
-        <p>Список из 2х элементов - {{ my_list }}</p>
-    {% elif my_list|length == 1 %}
-        <p>Список из 1 элемента - {{ my_list }}</p>
-    {% else %}
-        <p>Пустой список</p>
-    {% endif %}
+{% extends 'base.html' %}
 
-    <h1>Приложение Гороскоп</h1>
-    <h2>{{description|safe}}</h2>
-    <p>Число {{my_int}}</p>
-    <p>Число вещественное {{my_float}}</p>
-    <p>Список {{my_list}}</p>
-    <p>Кортеж {{my_tuple}}</p>
-    <p>Словарь {{my_dict}}, ключ - {{my_dict.name}}</p>
-</body>
-</html>
+{% block title %}
+    Гороскоп для {{sign}}
+{% endblock %}
+
+
+{% block content %}
+    <h2>Content from info_zodiac.html</h2>
+    {% if description is None %}
+        <h2>Неравильный знак зодиака - {{sign|title}}</h2>
+    {% else %}
+        <h2>{{description|capfirst|safe}}</h2>
+    {% endif %}
+{% endblock %}
+
+
+
