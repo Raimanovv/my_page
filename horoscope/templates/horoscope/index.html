@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load my_filter %}
+
+
 
 {% block css_additional %}
     <link rel="stylesheet" href="{% static 'horoscope/css/index.css' %}">
@@ -10,11 +13,10 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Content from index.html</h2>
-    {% include 'includes/navbar.html' only %}
+    <h1>Приложение гороскоп</h1>
     <ul>
-        {% for zodiac in zodiacs %}
-            <li><a href="{% url 'horoscope-name' sign_zodiac=zodiac %}">{{zodiac|title}}</a></li>
+        {% for zodiac, description in zodiac_dict.items %}
+            <li><a href="{% url 'horoscope-name' sign_zodiac=zodiac %}">{{description|split|first|title}}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

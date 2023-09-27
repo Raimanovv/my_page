@@ -58,6 +58,7 @@ def get_info_about_sign_zodiac(request, sign_zodiac: str):
     data = {
         'description': description,
         'sign': sign_zodiac.title(),
+        'zodiacs': zodiac_dict,
     }
     return render(request, 'horoscope/info_zodiac.html', context=data)
 
